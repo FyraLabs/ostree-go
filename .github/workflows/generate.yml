@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Dependencies
-        run: apt-get install -y libgirepository1.0-dev libgudev-1.0-dev
+        run: sudo apt-get install -y libgirepository1.0-dev libgudev-1.0-dev
       - uses: actions/checkout@v3
         with:
           repository: linuxdeepin/go-gir-generator
