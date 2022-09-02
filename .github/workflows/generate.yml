@@ -13,5 +13,5 @@ jobs:
         run: sudo apt-get install -y libgirepository1.0-dev libgudev-1.0-dev
       - run: git clone https://github.com/linuxdeepin/go-gir-generator.git ${{ runner.temp }}/go-gir-generator
       - name: Install linuxdeepin/go-gir-generator
-        run: make install
+        run: make build && make install
         working-directory: ${{ runner.temp }}/go-gir-generator
