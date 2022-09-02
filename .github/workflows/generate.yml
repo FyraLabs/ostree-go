@@ -1,0 +1,20 @@
+name: Generate Bindings
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: apt-get install -y libgirepository1.0-dev libgudev-1.0-dev
+      - uses: actions/checkout@v3
+        with:
+          repository: linuxdeepin/go-gir-generator
+          path: ${{ env.RUNNER_TEMP }}/go-gir-generator
+      - name: Install linuxdeepin/go-gir-generator
+        run: make install
+        working-directory: ${{ env.RUNNER_TEMP }}/go-gir-generator
